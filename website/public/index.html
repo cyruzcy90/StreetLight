@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Street Light OS</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <!-- Vertical Navigation Sidebar -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">⚡</div>
+      <span>StreetLight OS</span>
+    </div>
+    <div class="nav-label">Menu</div>
+    <div class="nav-list">
+      <div class="nav-item active" id="nav-home" onclick="selectView('home')">
+        <span>🏠 Home Overview</span>
+      </div>
+      <div class="nav-label">LED Stations</div>
+      <div class="nav-item" id="nav-0" onclick="selectView(0)">
+        <span>💡 Station 1</span>
+        <span class="dot" id="dot-0"></span>
+      </div>
+      <div class="nav-item" id="nav-1" onclick="selectView(1)">
+        <span>💡 Station 2</span>
+        <span class="dot" id="dot-1"></span>
+      </div>
+      <div class="nav-item" id="nav-2" onclick="selectView(2)">
+        <span>💡 Station 3</span>
+        <span class="dot" id="dot-2"></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Dashboard -->
+  <main class="main">
+    <div class="header">
+      <div>
+        <h1 id="page-title">Home Dashboard</h1>
+        <p>Cloud connected • ESP32 via internet relay</p>
+      </div>
+      <div class="header-tools">
+        <span class="conn" id="conn-badge">● CHECKING</span>
+        <div class="key-box">
+          <input id="key-input" type="password" placeholder="Device access key" autocomplete="off">
+          <button class="btn-outline" onclick="saveKey()">Save</button>
+        </div>
+        <div class="global-actions" id="global-controls">
+          <button class="btn-outline" onclick="sendCmd('all', 'on')">All ON</button>
+          <button class="btn-outline" onclick="sendCmd('all', 'off')">All OFF</button>
+          <button class="btn-auto" onclick="sendCmd('all', 'auto')">All AUTO</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice" id="notice"></div>
+
+    <!-- Home Summary Metrics -->
+    <div class="metrics" id="home-metrics">
+      <div class="metric-box">
+        <div class="metric-title">Active Lights</div>
+        <div class="metric-val" id="m-active">0 / 3</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-title">Total IR Triggers</div>
+        <div class="metric-val" id="m-triggers">0</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-title">Device Uptime</div>
+        <div class="metric-val" id="m-uptime">0s</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-title">Last Contact</div>
+        <div class="metric-val" id="m-seen">never</div>
+      </div>
+    </div>
+
+    <!-- Dynamic Station Cards -->
+    <div class="grid" id="cards-container"></div>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

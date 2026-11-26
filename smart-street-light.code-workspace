@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "name": "Smart Street Light",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.pio": true,
+      "**/node_modules": true,
+      "**/.tools": true,
+      "**/.wrangler": true
+    },
+    "platformio-ide.autoRebuildAutocompleteIndex": true
+  },
+  "extensions": {
+    "recommendations": ["platformio.platformio-ide"]
+  }
+}

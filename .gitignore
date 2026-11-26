@@ -1,0 +1,8 @@
+.pio/
+.vscode/
+.vs/
+.secrets/
+website/node_modules/
+website/.wrangler/
+.tools/
+.wrangler-dev.log
